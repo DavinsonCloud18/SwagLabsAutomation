@@ -96,7 +96,6 @@ public class SwagLabsLoginSteps {
 		} else {
 			expectedError = "Username and password do not match any user";
 		}
-//		System.out.println(expectedError);
 		boolean isMessageCorrect = loginPage.checkErrorMessage(expectedError);
 		assertTrue(isMessageCorrect);
 	}
