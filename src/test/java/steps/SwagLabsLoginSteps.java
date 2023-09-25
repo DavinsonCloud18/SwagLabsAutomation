@@ -8,7 +8,9 @@ import java.util.Map;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import helper.DriverProvider;
 import io.cucumber.java.en.*;
+import pageObjectModel.CartPage;
 import pageObjectModel.InventoryPage;
 import pageObjectModel.SwagLabsLoginPage;
 
@@ -16,16 +18,20 @@ public class SwagLabsLoginSteps {
 	WebDriver driver;
 	InventoryPage inventoryPage;
 	SwagLabsLoginPage loginPage;
-
+	CartPage cartPage;
+	
 	@Given("I Open Browser and Access URL {string}")
 	public void i_open_browser_and_access_url(String string) {
 		this.driver = new ChromeDriver();
 		this.inventoryPage = new InventoryPage(this.driver);
 		this.loginPage = new SwagLabsLoginPage(this.driver);
-
+		this.cartPage = new CartPage(this.driver);
+		
 		driver.get(string);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		
+		DriverProvider.setDriver(driver);
 	}
 
 	@Given("I Open Login Page")
