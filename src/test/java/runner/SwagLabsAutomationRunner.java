@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 					features = "src/test/resources/features",
 					glue = "steps",
 					monochrome = false,
-					plugin = {"pretty", "html:target/cucumberReports.html"},
+					plugin = {"pretty", "json:target/cucumberReports.json"},
 					tags = "@Regression"
 				)
 public class SwagLabsAutomationRunner {
